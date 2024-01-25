@@ -8,6 +8,7 @@ import (
     "net/http"
 		"strconv"
 		"sync"
+		"os"
 		"github.com/confluentinc/confluent-kafka-go/kafka" //the confluent library to work with kafka
 )
 
@@ -57,8 +58,8 @@ func sendMessage(w http.ResponseWriter, r *http.Request) {
 			"bootstrap.servers": "pkc-4r087.us-west2.gcp.confluent.cloud:9092",
 			"security.protocol": "SASL_SSL",
 			"sasl.mechanisms": "PLAIN",
-			"sasl.username": "PWPVHN47OAJLSKHR",
-			"sasl.password": "8NTx0zfTS1FLBVeFcH6Bp3QUbKOm/xsR/ohtqk+OjINLXY2ihR/gdopB5pPd6uN0",
+			"sasl.username": os.Getenv("API_KEY"),
+			"sasl.password": os.Getenv("API_SECRET"),
 		}
 		producer, err := kafka.NewProducer(config)
 		if err != nil {
