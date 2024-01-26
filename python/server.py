@@ -1,5 +1,6 @@
 from flask import Flask
 from confluent_kafka import Consumer, KafkaError
+import os
 
 app = Flask(__name__)
 
@@ -13,8 +14,8 @@ def consumeMessages():
       'auto.offset.reset': 'earliest',                 # Start reading from the beginning of the topic if no offset is stored
       'security.protocol': 'SASL_SSL',
 			'sasl.mechanisms': 'PLAIN',
-			'sasl.username': 'PWPVHN47OAJLSKHR',
-			'sasl.password': '8NTx0zfTS1FLBVeFcH6Bp3QUbKOm/xsR/ohtqk+OjINLXY2ihR/gdopB5pPd6uN0',
+			'sasl.username': os.environ('API_KEY'),
+			'sasl.password': os.environ('API_SECRET'),
   }
   
   consumer = Consumer(consumer_config)
