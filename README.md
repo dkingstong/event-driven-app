@@ -6,3 +6,4 @@ https://www.freecodecamp.org/news/build-a-real-time-notification-system-with-go-
 https://www.golangprograms.com/example-to-handle-get-and-post-request-in-golang.html
 https://golangbyexample.com/json-request-body-golang-http/
 https://gobyexample.com/environment-variables
+https://developer.confluent.io/get-started/python/#build-consumer
